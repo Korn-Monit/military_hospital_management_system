@@ -13,10 +13,10 @@
         <servlet-name>MyApiServlet</servlet-name>
         <url-pattern>/api/test</url-pattern>
     </servlet-mapping>
-        <servlet-mapping>
-        <servlet-name>MyApiServlet</servlet-name>
-        <url-pattern>/api/add</url-pattern>
-    </servlet-mapping>
+<!--     <servlet-mapping> -->
+<!--         <servlet-name>MyApiServlet</servlet-name> -->
+<!--         <url-pattern>/api/add</url-pattern> -->
+<!--     </servlet-mapping> -->
     
     
     <servlet>
