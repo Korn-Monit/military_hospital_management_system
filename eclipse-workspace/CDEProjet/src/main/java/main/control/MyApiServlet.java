@@ -118,7 +118,7 @@ public class MyApiServlet extends HttpServlet {
                
         
 
-            String data = retrieveDataFromDatabase(connection);
+           String data = retrieveDataFromDatabase(connection);
            response.getWriter().append(data);
             
 //            System.out.print(data);
