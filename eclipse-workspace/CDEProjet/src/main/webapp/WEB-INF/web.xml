@@ -11,7 +11,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>MyApiServlet</servlet-name>
-        <url-pattern>/api/stock</url-pattern>
+        <url-pattern>/api/test1</url-pattern>
     </servlet-mapping>
 <!--     <servlet-mapping> -->
 <!--         <servlet-name>MyApiServlet</servlet-name> -->

@@ -43,7 +43,7 @@ public class MyApiServlet extends HttpServlet {
 
     // Function to establish a database connection
     public static Connection establishConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/cde", "root", "");
+        return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/cde", "root", "");
     }
     public static void createDatabaseAndTableIfNotExists(Connection connection) throws SQLException {
         try (Statement statement = connection.createStatement()) {
@@ -56,7 +56,7 @@ public class MyApiServlet extends HttpServlet {
             statement.executeUpdate(useDatabaseQuery);
 
             // Create the table if it does not exist
-            String createTableQuery1 = "CREATE TABLE IF NOT EXISTS"+ TABLE1_NAME+" ("
+            String createTableQuery1 = "CREATE TABLE IF NOT EXISTS "+ TABLE1_NAME+" ("
                     + "id INT AUTO_INCREMENT PRIMARY KEY,"
                     + "affectataire VARCHAR(255),"
                     + "module VARCHAR(255),"
@@ -74,10 +74,10 @@ public class MyApiServlet extends HttpServlet {
                     + "projection VARCHAR(255),"
                     + "observation VARCHAR(255),"
                     + "champ_concataine VARCHAR(255)"
-                    + ")";
+                    + ");";
             statement.executeUpdate(createTableQuery1);
 
-            String createTableQuery2 = "CREATE TABLE IF NOT EXISTS" + TABLE2_NAME+ "("
+            String createTableQuery2 = "CREATE TABLE IF NOT EXISTS " + TABLE2_NAME+ " ("
                     + "id INT AUTO_INCREMENT PRIMARY KEY,"
                     + "produit VARCHAR(255),"
                     + "dci VARCHAR(255),"
@@ -89,15 +89,15 @@ public class MyApiServlet extends HttpServlet {
                     + "n_caisse INT,"
                     + "caisse VARCHAR(255),"
                     + "donation INT"
-                    + ")";
+                    + ");";
             statement.executeUpdate(createTableQuery2);
 
-            String createTableQuery3 = "CREATE TABLE IF NOT EXISTS" +TABLE3_NAME+ "("
+            String createTableQuery3 = "CREATE TABLE IF NOT EXISTS " +TABLE3_NAME+ " ("
                     + "id INT AUTO_INCREMENT PRIMARY KEY,"
                     + "designation VARCHAR(255),"
                     + "quantite INT,"
                     + "dlu DATE" // Removed the comma after DATE
-                    + ")";
+                    + ");";
             statement.executeUpdate(createTableQuery3);
 
             System.out.println("Database and table created successfully.");
