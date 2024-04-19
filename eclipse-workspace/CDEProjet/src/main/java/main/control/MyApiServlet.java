@@ -56,7 +56,7 @@ public class MyApiServlet extends HttpServlet {
             statement.executeUpdate(useDatabaseQuery);
 
             // Create the table if it does not exist
-            String createTableQuery1 = "CREATE TABLE IF NOT EXISTS"+TABLE1_NAME+" ("
+            String createTableQuery1 = "CREATE TABLE IF NOT EXISTS"+ TABLE1_NAME+" ("
                     + "id INT AUTO_INCREMENT PRIMARY KEY,"
                     + "affectataire VARCHAR(255),"
                     + "module VARCHAR(255),"
