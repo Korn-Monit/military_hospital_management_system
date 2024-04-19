@@ -38,26 +38,26 @@ public class DatabaseUtil {
             statement.executeUpdate(useDatabaseQuery);
 
             // Create the table if it does not exist
-//            String createTableQuery1 = "CREATE TABLE IF NOT EXISTS stock ("
-//                    + "id INT AUTO_INCREMENT PRIMARY KEY,"
-//                    + "affectataire VARCHAR(255),"
-//                    + "module VARCHAR(255),"
-//                    + "nominal VARCHAR(255),"
-//                    + "secteur VARCHAR(255),"
-//                    + "natur_des_colis VARCHAR(255),"
-//                    + "n_du_colis INT,"
-//                    + "designation_generique_du_colis VARCHAR(255),"
-//                    + "precision_arti VARCHAR(255),"
-//                    + "dimens_long_large_haut VARCHAR(255),"
-//                    + "volume DECIMAL(5, 2)," // Changed to DECIMAL
-//                    + "poids DECIMAL(5, 2)," // Changed to DECIMAL
-//                    + "valeur INT,"
-//                    + "iata DECIMAL(5, 2)," // Changed to DECIMAL
-//                    + "projection VARCHAR(255),"
-//                    + "observation VARCHAR(255),"
-//                    + "champ_concataine VARCHAR(255)"
-//                    + ")";
-//            statement.executeUpdate(createTableQuery1);
+            String createTableQuery1 = "CREATE TABLE IF NOT EXISTS stock ("
+                    + "id INT AUTO_INCREMENT PRIMARY KEY,"
+                    + "affectataire VARCHAR(255),"
+                    + "module VARCHAR(255),"
+                    + "nominal VARCHAR(255),"
+                    + "secteur VARCHAR(255),"
+                    + "natur_des_colis VARCHAR(255),"
+                    + "n_du_colis INT,"
+                    + "designation_generique_du_colis VARCHAR(255),"
+                    + "precision_arti VARCHAR(255),"
+                    + "dimens_long_large_haut VARCHAR(255),"
+                    + "volume DECIMAL(5, 2)," // Changed to DECIMAL
+                    + "poids DECIMAL(5, 2)," // Changed to DECIMAL
+                    + "valeur INT,"
+                    + "iata DECIMAL(5, 2)," // Changed to DECIMAL
+                    + "projection VARCHAR(255),"
+                    + "observation VARCHAR(255),"
+                    + "champ_concataine VARCHAR(255)"
+                    + ")";
+            statement.executeUpdate(createTableQuery1);
 
             String createTableQuery2 = "CREATE TABLE IF NOT EXISTS medicin ("
                     + "id INT AUTO_INCREMENT PRIMARY KEY,"
