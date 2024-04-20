@@ -31,6 +31,7 @@ public class MyApiServlet extends HttpServlet {
     private static final String TABLE2_NAME = "medicin";
     private static final String TABLE3_NAME = "equipement";
     public Stock stock = new Stock();
+//    public Stock 
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -49,6 +50,7 @@ public class MyApiServlet extends HttpServlet {
     public static Connection establishConnection() throws SQLException {
         return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/cde", "root", "");
     }
+    
     public static void createDatabaseAndTableIfNotExists(Connection connection) throws SQLException {
         try (Statement statement = connection.createStatement()) {
             // Create the database if it does not exist
@@ -130,38 +132,35 @@ public class MyApiServlet extends HttpServlet {
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	//add data to stock
-        try {
-        	String affectataire = request.getParameter("affectataire");
-            String module = request.getParameter("module");
-            String nominal = request.getParameter("nominal");
-            String secteur = request.getParameter("secteur");
-            String natur_des_colis = request.getParameter("natur_des_colis");
-            String n_du_colis = request.getParameter("n_du_colis");
-            String designation_generique_du_colis = request.getParameter("designation_generique_du_colis");
-            String precision_arti = request.getParameter("precision_arti");
-            String dimens_long_large_haut = request.getParameter("dimens_long_large_haut");
-            String volume = request.getParameter("volume");
-            String poids = request.getParameter("poids");
-            String valeur = request.getParameter("valeur");
-            String iata = request.getParameter("iata");
-            String projection = request.getParameter("projection");
-            String observation = request.getParameter("observation");
-            String champ_concataine = request.getParameter("champ_concataine");
-
-            
-            stock.addDataToStock(affectataire, module, nominal, secteur, natur_des_colis, n_du_colis, designation_generique_du_colis, precision_arti, dimens_long_large_haut,volume,poids,valeur,iata,projection,observation,champ_concataine);
-            response.getWriter().write("Data added successfully!");
-        } catch (SQLException e) {
-            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            response.getWriter().write("Error adding data to the database: " + e.getMessage());
-        }
+//        try {
+//        	String affectataire = request.getParameter("affectataire");
+//            String module = request.getParameter("module");
+//            String nominal = request.getParameter("nominal");
+//            String secteur = request.getParameter("secteur");
+//            String natur_des_colis = request.getParameter("natur_des_colis");
+//            String n_du_colis = request.getParameter("n_du_colis");
+//            String designation_generique_du_colis = request.getParameter("designation_generique_du_colis");
+//            String precision_arti = request.getParameter("precision_arti");
+//            String dimens_long_large_haut = request.getParameter("dimens_long_large_haut");
+//            String volume = request.getParameter("volume");
+//            String poids = request.getParameter("poids");
+//            String valeur = request.getParameter("valeur");
+//            String iata = request.getParameter("iata");
+//            String projection = request.getParameter("projection");
+//            String observation = request.getParameter("observation");
+//            String champ_concataine = request.getParameter("champ_concataine");
+//
+//            
+//            stock.addDataToStock(affectataire, module, nominal, secteur, natur_des_colis, n_du_colis, designation_generique_du_colis, precision_arti, dimens_long_large_haut,volume,poids,valeur,iata,projection,observation,champ_concataine);
+//            response.getWriter().write("Data added successfully!");
+//        } catch (SQLException e) {
+//            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+//            response.getWriter().write("Error adding data to the database: " + e.getMessage());
+//        }
         
         //update stock 
     	
-//        String idString = request.getParameter("id");
-//        int id = Integer.parseInt(idString);
-//        String moduleUpdate = request.getParameter("module");
-//        updateDataInDatabase(id, moduleUpdate);
+
         
         //delete stock
 //        String idString2 = request.getParameter("id");
@@ -169,6 +168,16 @@ public class MyApiServlet extends HttpServlet {
 //        deleteStockFromDatabase(id2);
 //        response.getWriter().write("Row with ID " + id2 + " deleted successfully.");
     }
+    
+    
+    protected void doPut(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+	    String idString = request.getParameter("id");
+	    int id = Integer.parseInt(idString);
+	    String moduleUpdate = request.getParameter("module");
+	    stock.updateDataInDatabase(id, moduleUpdate);
+    }
+
+    
 
 
 
