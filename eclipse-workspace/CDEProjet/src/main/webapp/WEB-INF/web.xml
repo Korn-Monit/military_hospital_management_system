@@ -25,19 +25,9 @@
 	    <servlet-name>MyApiServlet</servlet-name>
 	    <url-pattern>/api/deleteStock</url-pattern>
 	</servlet-mapping>
-<!--     <servlet-mapping> -->
-<!--         <servlet-name>MyApiServlet</servlet-name> -->
-<!--         <url-pattern>/api/add</url-pattern> -->
-<!--     </servlet-mapping> -->
-    
-    
-<!--     <servlet> -->
-<!--         <servlet-name>UpdateServlet</servlet-name> -->
-<!--         <servlet-class>main.control.UpdateServlet</servlet-class> Assuming this is the correct class name -->
-<!--     </servlet> -->
-<!--     <servlet-mapping> -->
-<!--         <servlet-name>UpdateServlet</servlet-name> -->
-<!--         <url-pattern>/api/update</url-pattern> -->
-<!--     </servlet-mapping> -->
+	
+
+
+
     
 </web-app>
