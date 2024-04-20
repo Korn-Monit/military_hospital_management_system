@@ -15,11 +15,12 @@ import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+@WebServlet(name = "MyApiServlet", urlPatterns = {"/api/getStock", "/api/addStock", "/api/updateStock", "/api/deleteStock"})
 public class MyApiServlet extends HttpServlet {
     // Declare a static variable to hold the database connection
     private static Connection connection;
@@ -109,54 +110,72 @@ public class MyApiServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
         try {
-
         	Connection connection;
 			connection = establishConnection();
-
-//        	Statement statement = connection.createStatement();
-
-               
-        
 
            String data = retrieveDataFromDatabase(connection);
            response.getWriter().append(data);
             
-//            System.out.print(data);
-//
             request.setAttribute("data",data);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
             dispatcher.forward(request, response);
-//            
+           
         } catch (SQLException e) {
             throw new ServletException("Database error", e);
         }
     }
     
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        // Extract data from request parameters
-//        String name = request.getParameter("name");
-//
-//        try {
-//            addDataToDatabase(name);
-//            response.getWriter().println("Data added successfully!");
-//        } catch (SQLException e) {
-//            throw new ServletException("Error adding data to the database", e);
-//        }
-//    }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	//add data to stock
+        try {
+        	String affectataire = request.getParameter("affectataire");
+            String module = request.getParameter("module");
+            String nominal = request.getParameter("nominal");
+            String secteur = request.getParameter("secteur");
+            String natur_des_colis = request.getParameter("natur_des_colis");
+            String n_du_colis = request.getParameter("n_du_colis");
+            
+            String designation_generique_du_colis = request.getParameter("designation_generique_du_colis");
+            String precision_arti = request.getParameter("precision_arti");
+            String dimens_long_large_haut = request.getParameter("dimens_long_large_haut");
+            String volume = request.getParameter("volume");
+            String poids = request.getParameter("poids");
+            String valeur = request.getParameter("valeur");
+            String iata = request.getParameter("iata");
+            String projection = request.getParameter("projection");
+            String observation = request.getParameter("observation");
+            String champ_concataine = request.getParameter("champ_concataine");
+
+            
+            addDataToStock(affectataire, module, nominal, secteur, natur_des_colis, n_du_colis, designation_generique_du_colis, precision_arti, dimens_long_large_haut,volume,poids,valeur,iata,projection,observation,champ_concataine);
+            response.getWriter().write("Data added successfully!");
+        } catch (SQLException e) {
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            response.getWriter().write("Error adding data to the database: " + e.getMessage());
+        }
+        
+        //update stock 
+    	
+//        String idString = request.getParameter("id");
+//        int id = Integer.parseInt(idString);
+//        String moduleUpdate = request.getParameter("module");
+//        updateDataInDatabase(id, moduleUpdate);
+        
+        //delete stock
+//        String idString2 = request.getParameter("id");
+//        int id2 = Integer.parseInt(idString2);
+//        deleteStockFromDatabase(id2);
+//        response.getWriter().write("Row with ID " + id2 + " deleted successfully.");
+    }
+
 
     //function to retrieve data from database
     private String retrieveDataFromDatabase(Connection connection) throws SQLException {
 //    	System.out.print("haha");
         try (
-            	            // Create the database if it does not exist
-        		//        	Connection connection = DatabaseUtil.establishConnection();
             Statement statement = connection.createStatement();
-        	
             ResultSet resultSet = statement.executeQuery("SELECT * FROM stock")) 
-        {
-        	
-        	
-        	
+        {   	
             StringBuilder sb = new StringBuilder();
             while (resultSet.next()) {
                 sb.append(resultSet.getString("module")).append("\n");
@@ -165,13 +184,82 @@ public class MyApiServlet extends HttpServlet {
         }
     }
     
-//    private void addDataToDatabase(String name) throws SQLException {
-//        try (Connection connection = DatabaseUtil.getConnection();
-//             PreparedStatement statement = connection.prepareStatement("INSERT INTO your_table (name) VALUES (?)")) {
-//            
-//            statement.setString(1, name);
-//            
-//            statement.executeUpdate();
-//        }
-//    }
+    // Function to add data to the database
+    public void addDataToStock(String test1, String test2, String test3, String test4, String test5, String test6, String test7, String test8, String test9, String test10, String test11, String test12, String test13, String test14, String test15, String test16) throws SQLException {
+        String insertUserSQL = "INSERT INTO stock (affectataire, module, nominal, secteur, natur_des_colis, n_du_colis, designation_generique_du_colis, precision_arti, dimens_long_large_haut, volume, poids, valeur, iata, projection, observation, champ_concataine) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try (Connection connection = establishConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(insertUserSQL)) {
+
+            // Set the values for the placeholders in the SQL query
+            preparedStatement.setString(1, test1);
+            preparedStatement.setString(2, test2);
+            preparedStatement.setString(3, test3);
+            preparedStatement.setString(4, test4);
+            preparedStatement.setString(5, test5);
+            preparedStatement.setInt(6, Integer.parseInt(test6));
+            preparedStatement.setString(7, test7);
+            preparedStatement.setString(8, test8);
+            preparedStatement.setString(9, test9);
+            preparedStatement.setFloat(10, Float.parseFloat(test10));
+            preparedStatement.setFloat(11, Float.parseFloat(test11));
+            preparedStatement.setInt(12, Integer.parseInt(test12));
+            preparedStatement.setFloat(13, Float.parseFloat(test13));
+            preparedStatement.setString(14, test14);
+            preparedStatement.setString(15, test15);
+            preparedStatement.setString(16, test16);
+
+            // Execute the SQL statement
+            preparedStatement.executeUpdate();
+
+            System.out.println("Added successfully!");
+        } catch (SQLException e) {
+            System.err.println("Error adding user to the database: " + e.getMessage());
+            throw e; // Rethrow the exception if you want the caller to handle it
+        }
+    }
+    
+//   update stock
+    protected void updateDataInDatabase(int id, String nominal) {
+        String sql = "UPDATE stock SET nominal = ? WHERE id = ?";
+
+        try (Connection conn = establishConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, nominal);
+            pstmt.setInt(2, id);
+
+            int rowsAffected = pstmt.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Data updated successfully.");
+            } else {
+                System.out.println("No data was updated.");
+            }
+        } catch (SQLException e) {
+            System.err.println("Error updating data in the database: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+//	delete stock
+    protected void deleteStockFromDatabase(int id) {
+        String sql = "DELETE FROM stock WHERE id = ?";
+
+        try (Connection conn = establishConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, id);
+
+            int rowsAffected = pstmt.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Data deleted successfully.");
+            } else {
+                System.out.println("No data was deleted.");
+            }
+        } catch (SQLException e) {
+            System.err.println("Error deleting data from the database: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    
 }

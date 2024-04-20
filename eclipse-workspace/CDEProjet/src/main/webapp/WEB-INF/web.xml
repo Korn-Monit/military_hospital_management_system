@@ -11,8 +11,20 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>MyApiServlet</servlet-name>
-        <url-pattern>/api/test1</url-pattern>
+        <url-pattern>/api/getStock</url-pattern>
     </servlet-mapping>
+	<servlet-mapping>
+	    <servlet-name>MyApiServlet</servlet-name>
+	    <url-pattern>/api/addStock</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	    <servlet-name>MyApiServlet</servlet-name>
+	    <url-pattern>/api/updateStock</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	    <servlet-name>MyApiServlet</servlet-name>
+	    <url-pattern>/api/deleteStock</url-pattern>
+	</servlet-mapping>
 <!--     <servlet-mapping> -->
 <!--         <servlet-name>MyApiServlet</servlet-name> -->
 <!--         <url-pattern>/api/add</url-pattern> -->
