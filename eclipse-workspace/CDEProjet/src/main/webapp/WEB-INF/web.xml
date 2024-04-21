@@ -26,42 +26,43 @@
 	    <url-pattern>/api/deleteStock</url-pattern>
 	</servlet-mapping>
 	
-<!-- 	<servlet-mapping> -->
-<!-- 	    <servlet-name>MyApiServlet</servlet-name> -->
-<!-- 	    <url-pattern>/api/getMedicin</url-pattern> -->
-<!-- 	</servlet-mapping> -->
-<!-- 	<servlet-mapping> -->
-<!-- 	    <servlet-name>MyApiServlet</servlet-name> -->
-<!-- 	    <url-pattern>/api/addMedicin</url-pattern> -->
-<!-- 	</servlet-mapping> -->
-<!-- 		<servlet-mapping> -->
-<!-- 	    <servlet-name>MyApiServlet</servlet-name> -->
-<!-- 	    <url-pattern>/api/updateMedicin</url-pattern> -->
-<!-- 	</servlet-mapping> -->
-<!-- 	<servlet-mapping> -->
-<!-- 	    <servlet-name>MyApiServlet</servlet-name> -->
-<!-- 	    <url-pattern>/api/deleteMedicin</url-pattern> -->
-<!-- 	</servlet-mapping> -->
+	<servlet>
+        <servlet-name>MyMedicinApi</servlet-name>
+        <servlet-class>main.control.MyMedicinApi</servlet-class>
+    </servlet>
+	<servlet-mapping>
+	    <servlet-name>MyMedicinApi</servlet-name>
+	    <url-pattern>/api/getMedicin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	    <servlet-name>MyMedicinApi</servlet-name>
+	    <url-pattern>/api/addMedicin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	    <servlet-name>MyMedicinApi</servlet-name>
+	    <url-pattern>/api/updateMedicin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	    <servlet-name>MyMedicinApi</servlet-name>
+	    <url-pattern>/api/deleteMedicin</url-pattern>
+	</servlet-mapping>
 	
-<!-- 	<servlet-mapping> -->
-<!-- 	    <servlet-name>MyApiServlet</servlet-name> -->
-<!-- 	    <url-pattern>/api/getEquipement</url-pattern> -->
-<!-- 	</servlet-mapping> -->
-<!-- 	<servlet-mapping> -->
-<!-- 	    <servlet-name>MyApiServlet</servlet-name> -->
-<!-- 	    <url-pattern>/api/addEquipement</url-pattern> -->
-<!-- 	</servlet-mapping> -->
-<!-- 		<servlet-mapping> -->
-<!-- 	    <servlet-name>MyApiServlet</servlet-name> -->
-<!-- 	    <url-pattern>/api/updateEquipement</url-pattern> -->
-<!-- 	</servlet-mapping> -->
-<!-- 	<servlet-mapping> -->
-<!-- 	    <servlet-name>MyApiServlet</servlet-name> -->
-<!-- 	    <url-pattern>/api/deleteEquipement</url-pattern> -->
-<!-- 	</servlet-mapping> -->
-	
-
-
+	<servlet-mapping>
+	    <servlet-name>MyApiServlet</servlet-name>
+	    <url-pattern>/api/getEquipement</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	    <servlet-name>MyApiServlet</servlet-name>
+	    <url-pattern>/api/addEquipement</url-pattern>
+	</servlet-mapping>
+		<servlet-mapping>
+	    <servlet-name>MyApiServlet</servlet-name>
+	    <url-pattern>/api/updateEquipement</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	    <servlet-name>MyApiServlet</servlet-name>
+	    <url-pattern>/api/deleteEquipement</url-pattern>
+	</servlet-mapping>	
 
     
 </web-app>

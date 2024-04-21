@@ -33,8 +33,8 @@ public class MyApiServlet extends HttpServlet {
     private static final String TABLE2_NAME = "medicin";
     private static final String TABLE3_NAME = "equipement";
     public Stock stock = new Stock();
-    public Medicin medicin = new Medicin();
-    public Equipement equipement = new Equipement();
+//    public Medicin medicin = new Medicin();
+//    public Equipement equipement = new Equipement();
 //    public Stock 
 
     @Override
@@ -134,21 +134,7 @@ public class MyApiServlet extends HttpServlet {
             throw new ServletException("Database error", e);
         }
     	
-    	//get data from medicin
-//        try {
-//        	Connection connection;
-//			connection = establishConnection();
-//
-//           String data = medicin.retrieveDataFromMedecin(connection);
-//           response.getWriter().append(data);
-//            
-//            request.setAttribute("data",data);
-//            RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
-//            dispatcher.forward(request, response);
-//           
-//        } catch (SQLException e) {
-//            throw new ServletException("Database error", e);
-//        }
+
     	
     	//get data from equipement
 //        try {
@@ -198,25 +184,7 @@ public class MyApiServlet extends HttpServlet {
 
   
     	
-    	//add to medecin
-//      try {
-//    	String produit = request.getParameter("produit");
-//        String dci = request.getParameter("dci");
-//        String forme_dosage = request.getParameter("forme_dosage");
-//        String dlu = request.getParameter("dlu");
-//        String qtte = request.getParameter("qtte");
-//        String lot = request.getParameter("lot");
-//        String classe_therapeutique = request.getParameter("classe_therapeutique");
-//        String n_caisse = request.getParameter("n_caisse");
-//        String caisse = request.getParameter("caisse");
-//        String donation = request.getParameter("donation");
-//        
-//        medicin.addDataToMedicin(produit, dci, forme_dosage, dlu, qtte,lot, classe_therapeutique, n_caisse, caisse, donation);
-//        response.getWriter().write("Data added successfully!");
-//    } catch (SQLException e) {
-//        response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-//        response.getWriter().write("Error adding data to the database: " + e.getMessage());
-//    }
+
       
   	//add to equipement
 //      try {
@@ -243,11 +211,7 @@ public class MyApiServlet extends HttpServlet {
 	    String moduleUpdate = request.getParameter("module");
 	    stock.updateDataInDatabase(id, moduleUpdate);
   
-    	//update medicin
-//	    String idString = request.getParameter("id");
-//	    int id = Integer.parseInt(idString);
-//	    String produitUpdate = request.getParameter("produit");
-//	    medicin.updateDataInMedicin(id, produitUpdate);
+
 	    
     	//update equipement
 //	    String idString = request.getParameter("id");
@@ -258,14 +222,11 @@ public class MyApiServlet extends HttpServlet {
     
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	//delete stock
-	    String idString = request.getParameter("id");
-	    int id = Integer.parseInt(idString);
-    	stock.deleteStockFromDatabase(id);
-    	
-    	//delete medicin
 //	    String idString = request.getParameter("id");
 //	    int id = Integer.parseInt(idString);
-//    	medicin.deleteMedicinFromDatabase(id);
+//    	stock.deleteStockFromDatabase(id);
+    	
+
     	
     	
     	//delete medicin
