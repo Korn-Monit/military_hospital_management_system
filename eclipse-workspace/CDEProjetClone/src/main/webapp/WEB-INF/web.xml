@@ -47,22 +47,26 @@
 	    <url-pattern>/api/deleteMedicin</url-pattern>
 	</servlet-mapping>
 	
-<!-- 	<servlet-mapping> -->
-<!-- 	    <servlet-name>MyApiServlet</servlet-name> -->
-<!-- 	    <url-pattern>/api/getEquipement</url-pattern> -->
-<!-- 	</servlet-mapping> -->
-<!-- 	<servlet-mapping> -->
-<!-- 	    <servlet-name>MyApiServlet</servlet-name> -->
-<!-- 	    <url-pattern>/api/addEquipement</url-pattern> -->
-<!-- 	</servlet-mapping> -->
-<!-- 		<servlet-mapping> -->
-<!-- 	    <servlet-name>MyApiServlet</servlet-name> -->
-<!-- 	    <url-pattern>/api/updateEquipement</url-pattern> -->
-<!-- 	</servlet-mapping> -->
-<!-- 	<servlet-mapping> -->
-<!-- 	    <servlet-name>MyApiServlet</servlet-name> -->
-<!-- 	    <url-pattern>/api/deleteEquipement</url-pattern> -->
-<!-- 	</servlet-mapping>	 -->
+	<servlet>
+        <servlet-name>MyEquipmentApi</servlet-name>
+        <servlet-class>main.control.MyEquipmentApi</servlet-class>
+    </servlet>
+	<servlet-mapping>
+	    <servlet-name>MyEquipmentApi</servlet-name>
+	    <url-pattern>/api/getEquipement</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	    <servlet-name>MyEquipmentApi</servlet-name>
+	    <url-pattern>/api/addEquipement</url-pattern>
+	</servlet-mapping>
+		<servlet-mapping>
+	    <servlet-name>MyEquipmentApi</servlet-name>
+	    <url-pattern>/api/updateEquipement</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	    <servlet-name>MyEquipmentApi</servlet-name>
+	    <url-pattern>/api/deleteEquipement</url-pattern>
+	</servlet-mapping>	
 
     
 </web-app>

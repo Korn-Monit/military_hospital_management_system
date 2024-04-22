@@ -38,9 +38,9 @@ public class MyMedicinApi extends HttpServlet{
         try {
         	Connection connection;
 			connection = MyApiServlet.establishConnection();
-			List<MedicinObject> medicin = medicin.retrieveDataFromMedecin(connection);  
+			List<MedicinObject> medicins = medicin.retrieveDataFromMedecin(connection);  
 
-            request.setAttribute("data1",medicin);
+            request.setAttribute("data1",medicins);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/index1.jsp");
             dispatcher.forward(request, response);
            

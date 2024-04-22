@@ -227,9 +227,9 @@ public class MyApiServlet extends HttpServlet {
     
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	//delete stock
-//	    String idString = request.getParameter("id");
-//	    int id = Integer.parseInt(idString);
-//    	stock.deleteStockFromDatabase(id);
+	    String idString = request.getParameter("id");
+	    int id = Integer.parseInt(idString);
+    	stock.deleteStockFromDatabase(id);
     	
 
     	

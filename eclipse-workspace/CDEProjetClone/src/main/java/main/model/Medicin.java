@@ -24,7 +24,7 @@ public class Medicin {
 	            medicin.setProduit(resultSet.getString("produit"));
 	            medicin.setDci(resultSet.getString("dci"));
 	            medicin.setForme_dosage(resultSet.getString("forme_dosag"));
-	            medicin.setDlu(resultSet.getString("dlu"));
+	            medicin.setDlu(resultSet.getDate("dlu"));
 	            medicin.setQtte(resultSet.getInt("qtte"));
 	            medicin.setLot(resultSet.getString("lot"));
 	            medicin.setClasse_therapeutique(resultSet.getString("classe_therapeutique"));
