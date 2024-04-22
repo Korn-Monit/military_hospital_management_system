@@ -6,23 +6,29 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+import java.util.ArrayList;
+import java.util.List;
 
 import main.control.MyApiServlet;
 
 public class Equipement {
-	public String retrieveDataFromEquipment(Connection connection) throws SQLException {
 
+	public List<EquipementObject> retrieveDataFromEquipement(Connection connection) throws SQLException {
+		List<EquipementObject> equipements = new ArrayList<>();
         try (
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM eqipement")) 
         {   	
-            StringBuilder sb = new StringBuilder();
-            while (resultSet.next()) {
-                sb.append(resultSet.getString("designation")).append("\n");
-            }
-            return sb.toString();
+	        while (resultSet.next()) {
+	        	EquipementObject equipement = new EquipementObject();
+	        	equipement.setId(resultSet.getInt("id"));
+	        	equipement.setDesignation(resultSet.getString("equipement"));
+	        	equipement.setQuantite(resultSet.getInt("quantite"));
+	        	equipement.setDlu(resultSet.getString("dlu"));
+	        	equipements.add(equipement);
+	        }
         }
+        return equipements;
     }
     
     //add data to table medicin

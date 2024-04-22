@@ -120,20 +120,20 @@ public class MyApiServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
     	//get data from stock
-//        try {
-//        	Connection connection;
-//			connection = establishConnection();
-//
-//			List<StockObject> stocks = stock.retrieveDataFromDatabase(connection);
+        try {
+        	Connection connection;
+			connection = establishConnection();
+
+			List<StockObject> stocks = stock.retrieveDataFromDatabase(connection);
 //           response.getWriter().append(stocks);
-//            
-//            request.setAttribute("data",data);
-//            RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
-//            dispatcher.forward(request, response);
-//           
-//        } catch (SQLException e) {
-//            throw new ServletException("Database error", e);
-//        }
+            
+            request.setAttribute("data",stocks);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+            dispatcher.forward(request, response);
+           
+        } catch (SQLException e) {
+            throw new ServletException("Database error", e);
+        }
     	
 
     	
@@ -209,8 +209,12 @@ public class MyApiServlet extends HttpServlet {
     	
 	    String idString = request.getParameter("id");
 	    int id = Integer.parseInt(idString);
-	    String moduleUpdate = request.getParameter("module");
-	    stock.updateDataInDatabase(id, moduleUpdate);
+	    String affectataireUpdate = request.getParameter("affectataire");
+	    stock.updateDataInDatabase(id, affectataireUpdate);
+//	    String moduleUpdate = request.getParameter("module");
+//	    stock.updateDataInDatabase(id, moduleUpdate);
+	    
+
   
 
 	    

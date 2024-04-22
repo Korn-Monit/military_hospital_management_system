@@ -3,6 +3,7 @@ package main.control;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -13,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import main.model.Medicin;
+import main.model.MedicinObject;
+
 
 @WebServlet(name = "MyMedicinApi", urlPatterns = {"/api/getMedicin", "/api/addMedicin", "/api/updateMedicin", "/api/deleteMedicin"})
 public class MyMedicinApi extends HttpServlet{
@@ -35,11 +38,9 @@ public class MyMedicinApi extends HttpServlet{
         try {
         	Connection connection;
 			connection = MyApiServlet.establishConnection();
+			List<MedicinObject> medicin = medicin.retrieveDataFromMedecin(connection);  
 
-           String data1 = medicin.retrieveDataFromMedecin(connection);
-           response.getWriter().append(data1);
-            
-            request.setAttribute("data1",data1);
+            request.setAttribute("data1",medicin);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/index1.jsp");
             dispatcher.forward(request, response);
            
