@@ -99,7 +99,7 @@ public class Stock {
     
 //  update stock
    public void updateDataInDatabase(int id, String module) {
-       String sql = "UPDATE stock SET module = ? WHERE id = ?";
+       String sql = "UPDATE stock SET "+ module +"= ? WHERE id = ?";
 
        try (Connection conn = MyApiServlet.establishConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)) {

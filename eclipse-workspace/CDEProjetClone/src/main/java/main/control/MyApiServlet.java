@@ -119,6 +119,11 @@ public class MyApiServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+//	    String idString = request.getParameter("id");
+//	    int id = Integer.parseInt(idString);
+//	    String affectataireUpdate = request.getParameter("affectataire");
+//	    stock.updateDataInDatabase(id, affectataireUpdate);
+    	
     	//get data from stock
         try {
         	Connection connection;
@@ -155,6 +160,7 @@ public class MyApiServlet extends HttpServlet {
     }
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
     	//add data to stock
         try {
         	String affectataire = request.getParameter("affectataire");
@@ -227,9 +233,11 @@ public class MyApiServlet extends HttpServlet {
     
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	//delete stock
-	    String idString = request.getParameter("id");
+    	System.out.print("hahahaa");	    
+    	String idString = request.getParameter("id");
 	    int id = Integer.parseInt(idString);
     	stock.deleteStockFromDatabase(id);
+    	response.sendRedirect("index.jsp"); 
     	
 
     	
