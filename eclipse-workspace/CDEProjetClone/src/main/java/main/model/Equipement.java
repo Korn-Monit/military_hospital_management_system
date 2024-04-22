@@ -24,7 +24,7 @@ public class Equipement {
 	        	equipement.setId(resultSet.getInt("id"));
 	        	equipement.setDesignation(resultSet.getString("equipement"));
 	        	equipement.setQuantite(resultSet.getInt("quantite"));
-	        	equipement.setDlu(resultSet.getString("dlu"));
+	        	equipement.setDlu(resultSet.getDate("dlu"));
 	        	equipements.add(equipement);
 	        }
         }

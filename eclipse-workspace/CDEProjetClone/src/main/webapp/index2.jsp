@@ -3,11 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Data Display</title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
-    <h1>Data Retrieved:</h1>
-    <p>${data}</p> 
-    <p>Data: <%= request.getAttribute("data1") %></p>
+
 </body>
 </html>

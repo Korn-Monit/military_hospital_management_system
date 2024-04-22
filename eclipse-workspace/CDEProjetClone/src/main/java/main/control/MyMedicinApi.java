@@ -40,8 +40,8 @@ public class MyMedicinApi extends HttpServlet{
 			connection = MyApiServlet.establishConnection();
 			List<MedicinObject> medicins = medicin.retrieveDataFromMedecin(connection);  
 
-            request.setAttribute("data1",medicins);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/index1.jsp");
+            request.setAttribute("medicinData",medicins);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/medicinUI.jsp");
             dispatcher.forward(request, response);
            
         } catch (SQLException e) {

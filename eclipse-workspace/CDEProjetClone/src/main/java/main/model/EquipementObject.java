@@ -1,10 +1,14 @@
 package main.model;
 
+import java.util.Date;
+
 public class EquipementObject {
     private int id;
     private String designation;
     private int quantite;
-    private String dlu;
+    private Date dlu;
+    
+
 	public int getId() {
 		return id;
 	}
@@ -23,12 +27,10 @@ public class EquipementObject {
 	public void setQuantite(int quantite) {
 		this.quantite = quantite;
 	}
-	public String getDlu() {
+	public Date getDlu() {
 		return dlu;
 	}
-	public void setDlu(String dlu) {
+	public void setDlu(Date dlu) {
 		this.dlu = dlu;
-	}
-    
-    
+	}  
 }

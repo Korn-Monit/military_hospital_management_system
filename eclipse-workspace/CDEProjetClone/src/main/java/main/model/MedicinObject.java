@@ -1,12 +1,14 @@
 package main.model;
 
+import java.sql.Date;
+
 public class MedicinObject {
 	
     private int id;
     private String produit;
     private String dci;
     private String forme_dosage;
-    private String dlu;
+    private Date dlu;
     private int qtte;
     private String lot;
     private String classe_therapeutique;
@@ -38,11 +40,11 @@ public class MedicinObject {
 	public void setForme_dosage(String forme_dosage) {
 		this.forme_dosage = forme_dosage;
 	}
-	public String getDlu() {
+	public Date getDlu() {
 		return dlu;
 	}
-	public void setDlu(String dlu) {
-		this.dlu = dlu;
+	public void setDlu(Date date) {
+		this.dlu = date;
 	}
 	public int getQtte() {
 		return qtte;
